@@ -1,0 +1,53 @@
+package main;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Insets;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JFrame frame = new JFrame("Ventana");
+		frame.setSize(1200,750);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.getContentPane().setBackground( Color.decode("#A700EC")); 
+		
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.decode("#EC00A7"));
+        panel.setPreferredSize(new Dimension(300,200));
+        panel.setBorder(new EmptyBorder(new Insets(50, 50, 50, 50)));
+		frame.add(panel, BorderLayout.CENTER);
+		
+		Componentes(panel);
+		
+		
+		frame.setVisible(true);	
+	}
+	
+	
+	private static void Componentes(JPanel panel) {
+		panel.setLayout(null); //Desactiva el layout
+		
+		JLabel userLabel = new JLabel("User");
+		userLabel.setBounds(10, 10, 80, 25);
+		panel.add(userLabel);
+		
+		JTextField userText = new JTextField(20);
+		userText.setBounds(100, 10, 80, 25);
+		panel.add(userText);
+		
+		JButton login = new JButton("Login");
+		login.setBounds(200, 10, 80, 25);
+		panel.add(login);
+	}
+
+}

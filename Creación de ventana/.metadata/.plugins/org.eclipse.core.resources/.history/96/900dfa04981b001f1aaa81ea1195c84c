@@ -1,0 +1,81 @@
+package main;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JFrame frame = new JFrame("Ventana");
+		frame.setSize(750,500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		
+		frame.getContentPane().setBackground( Color.decode("#A700EC")); 
+		frame.setLayout(null);
+		
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.decode("#FFA33A")); //#62A33E
+		frame.add(panel);
+		panel.setSize(500, 250);
+		
+		//Calcular coordenadas para que quede centrado
+		int x = (frame.getWidth() - panel.getWidth()) / 2;
+        int y = (frame.getHeight() - panel.getHeight()) / 2;
+        panel.setBounds(x, y, panel.getWidth(), panel.getHeight());
+		
+		Componentes(panel);
+		
+		
+		frame.setVisible(true);	
+	}
+	
+	
+	private static void Componentes(JPanel panel) {
+        panel.setLayout(null); // Desactivar el layout por defecto
+
+        // Crear y añadir JLabel
+        JLabel userLabel = new JLabel("Usuario:");
+        userLabel.setBounds(10, 20, 80, 25);
+        panel.add(userLabel);
+
+        // Crear y añadir JTextField
+        JTextField userText = new JTextField(20);
+        userText.setBounds(100, 20, 165, 25);
+        panel.add(userText);
+
+        // Crear y añadir JComboBox
+        String[] opciones = {"Opción 1", "Opción 2", "Opción 3"};
+        JComboBox<String> comboBox = new JComboBox<>(opciones);
+        comboBox.setBounds(10, 50, 165, 25);
+        panel.add(comboBox);
+
+        // Crear y añadir JButton
+        JButton loginButton = new JButton("Login");
+        loginButton.setBounds(10, 80, 80, 25);
+        panel.add(loginButton);
+
+        // Añadir ActionListener al botón
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Mostrar mensaje de "Login con éxito"
+                JOptionPane.showMessageDialog(null, "Login con éxito");
+            }
+        });
+    }
+
+}
